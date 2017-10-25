@@ -1,4 +1,0 @@
----
-systems:
-  - alias: "myAlias"
-    uri: "http://path/to/destination/"

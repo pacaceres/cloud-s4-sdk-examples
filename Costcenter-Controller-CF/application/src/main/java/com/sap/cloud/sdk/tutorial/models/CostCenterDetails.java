@@ -1,5 +1,11 @@
 package com.sap.cloud.sdk.tutorial.models;
 
+import com.sap.cloud.sdk.cloudplatform.logging.CloudLoggerFactory;
+import com.sap.cloud.sdk.result.ElementName;
+import com.sap.cloud.sdk.s4hana.datamodel.bapi.types.CompanyCode;
+import com.sap.cloud.sdk.s4hana.datamodel.bapi.types.ControllingArea;
+import com.sap.cloud.sdk.s4hana.datamodel.bapi.types.CostCenter;
+import com.sap.cloud.sdk.s4hana.datamodel.bapi.types.ProfitCenter;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import org.joda.time.LocalDate;
@@ -7,17 +13,9 @@ import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.slf4j.Logger;
 
-import com.sap.cloud.sdk.cloudplatform.logging.CloudLoggerFactory;
-import com.sap.cloud.sdk.result.ElementName;
-import com.sap.cloud.sdk.s4hana.datamodel.bapi.types.CompanyCode;
-import com.sap.cloud.sdk.s4hana.datamodel.bapi.types.ControllingArea;
-import com.sap.cloud.sdk.s4hana.datamodel.bapi.types.CostCenter;
-import com.sap.cloud.sdk.s4hana.datamodel.bapi.types.ProfitCenter;
-
 @Data
 @Accessors(chain = true)
-public class CostCenterDetails
-{
+public class CostCenterDetails {
     private static final Logger logger = CloudLoggerFactory.getLogger(CostCenterDetails.class);
     private static final DateTimeFormatter dtf = DateTimeFormat.forPattern("yyyy-MM-dd");
 

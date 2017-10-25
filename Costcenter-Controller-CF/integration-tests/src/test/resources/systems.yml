@@ -1,4 +1,12 @@
 ---
-systems:
-  - alias: "myAlias"
-    uri: "http://path/to/destination/"
+erp:
+  default: "QW9_715"
+  systems:
+    - alias: "W92_012"
+      sapClient: "012"
+      uri: "https://ldciw92.wdf.sap.corp:44322"
+
+    - alias: "QW9_715"
+      sapClient: "715"
+      uri: "https://ldciqw9.wdf.sap.corp:44300"
+

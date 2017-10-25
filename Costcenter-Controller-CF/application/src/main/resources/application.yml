@@ -1,8 +1,7 @@
 logging:
   level:
     com.sap.cloud.sdk.tutorial: DEBUG
-    com.sap.cloud.sdk: INFO
-    root: WARN
+    com.sap.cloud.sdk: DEBUG
 
 server:
   port: 8080
