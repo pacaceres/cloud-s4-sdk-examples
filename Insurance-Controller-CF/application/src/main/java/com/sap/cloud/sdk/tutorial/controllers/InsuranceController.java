@@ -48,14 +48,8 @@ public class InsuranceController {
             final List<CostCenter> insuranceCostCenters =
                     costCenterService
                             .getAllCostCenter()
-                            .select(
-                                    CostCenter.COST_CENTER_ID,
-                                    CostCenter.COST_CENTER_DESCRIPTION,
-                                    CostCenter.STATUS,
-                                    CostCenter.COMPANY_CODE,
-                                    CostCenter.CATEGORY,
-                                    CostCenter.VALIDITY_START_DATE,
-                                    CostCenter.VALIDITY_END_DATE
+                            .filter(
+                                    CostCenter.COMPANY_CODE.eq("1010")
                             )
                             .execute(configContext);
 
