@@ -1,9 +1,6 @@
 package com.sap.cloud.sdk.tutorial;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sap.cloud.sdk.cloudplatform.servlet.Executable;
-import com.sap.cloud.sdk.s4hana.datamodel.odata.namespaces.readcostcenterdata.CostCenter;
 import com.sap.cloud.sdk.s4hana.serialization.SapClient;
 import com.sap.cloud.sdk.testutil.MockUtil;
 import com.sap.cloud.sdk.tutorial.controllers.InsuranceController;
@@ -53,22 +50,6 @@ public class InsuranceServiceIntegrationTest {
 
     private static String generateId() {
         return "T" + StringUtils.leftPad(Long.toString(new DateTime().minus(Period.years(45)).getMillis(), 36).toUpperCase(), 9, '0');
-    }
-
-    private String getNewCostCenterAsJson(final String costCenterId) throws JsonProcessingException {
-        return new ObjectMapper().writeValueAsString(
-            CostCenter.builder()
-                .costCenterID(costCenterId)
-                .costCenterName("dummy")
-                .costCenterDescription("hello demo")
-                .category(COST_CENTER_CATEGORY)
-                .companyCode(COMPANY_CODE)
-                .status("ACTIVE")
-                .validityStartDate(DEMO_VALID_FROM)
-                .validityEndDate(DEMO_VALID_TO)
-                .language(COST_CENTER_LANGUAGE)
-                .build()
-        );
     }
 
     @Test
