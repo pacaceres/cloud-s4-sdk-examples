@@ -1,9 +1,7 @@
 package com.sap.cloud.sdk.tutorial.controllers;
 
 import com.sap.cloud.sdk.cloudplatform.logging.CloudLoggerFactory;
-import com.sap.cloud.sdk.odatav2.connectivity.ODataQuery;
-import com.sap.cloud.sdk.odatav2.connectivity.ODataQueryBuilder;
-import com.sap.cloud.sdk.odatav2.connectivity.ODataQueryResult;
+import com.sap.cloud.sdk.odatav2.connectivity.*;
 import com.sap.cloud.sdk.s4hana.connectivity.ErpConfigContext;
 import com.sap.cloud.sdk.s4hana.connectivity.ErpDestination;
 import com.sap.cloud.sdk.s4hana.serialization.SapClient;
@@ -44,14 +42,8 @@ public class InsuranceController {
                     .withEntity(
                         "/sap/opu/odata/sap/FCO_PI_COST_CENTER",
                         "CostCenterCollection")
-                    .select(
-                        "CostCenterID",
-                        "CostCenterDescription",
-                        "Status",
-                        "CompanyCode",
-                        "Category",
-                        "ValidityStartDate",
-                        "ValidityEndDate")
+                    .filter(
+                            ODataProperty.field("CompanyCode").eq(ODataType.of("1010")))
                     .build();
 
             final ODataQueryResult queryResult = query.execute(configContext);
