@@ -25,19 +25,7 @@ import java.util.GregorianCalendar;
 @WebMvcTest(InsuranceController.class)
 public class InsuranceServiceIntegrationTest {
 
-    private static final String EXISTING_COSTCENTER_ID = "0010101101";
-    private static final String DEMO_COSTCENTER_ID = generateId(); // 10 chars
-
-    private static final Calendar DEMO_VALID_FROM = new GregorianCalendar(2016, 4, 1);
-    private static final Calendar DEMO_VALID_TO = new GregorianCalendar(2016, 5, 1);
-
     private static final MockUtil mockSdk = new MockUtil();
-
-    // Update these parameters for your S/4HANA demo data
-    private static final String COST_CENTER_LANGUAGE = "EN";
-    private static final String COST_CENTER_CATEGORY = "E";
-    private static final String COMPANY_CODE = "1010";
-
 
     @Autowired
     private MockMvc mockMvc;
@@ -46,10 +34,6 @@ public class InsuranceServiceIntegrationTest {
     public static void beforeClass() {
         mockSdk.mockDefaults();
         mockSdk.mockErpDestination();
-    }
-
-    private static String generateId() {
-        return "T" + StringUtils.leftPad(Long.toString(new DateTime().minus(Period.years(45)).getMillis(), 36).toUpperCase(), 9, '0');
     }
 
     @Test
